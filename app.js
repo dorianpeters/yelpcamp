@@ -18,7 +18,6 @@ var commentRoutes     = require("./routes/comments"),
     indexRoutes       = require("./routes/index");
 
 mongoose.connect(process.env.DATABASEURL, { useNewUrlParser: true });
-//mongoose.connect("mongodb://dorian:zLuchia5@ds133252.mlab.com:33252/yelpcamp15648", { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.set("view engine", "ejs");
@@ -54,4 +53,5 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 app.listen(process.env.PORT, process.env.IP, function(){
    console.log("The YelpCamp Server Has Started!");
+   console.log("Database URL is: " + process.env.DATABASEURL);
 });
